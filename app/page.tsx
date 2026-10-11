@@ -7,6 +7,7 @@ const GH = "https://github.com/Bruno-Luiz-CNR";
 const LI = "https://www.linkedin.com/in/brunoluizft/";
 const IG = "https://www.instagram.com/brunolu1z/";
 const MAIL = "bluizft@gmail.com";
+const CV = "/curriculo-bruno-luiz.pdf";
 
 const steps = [
   { t: "Entender o problema", d: "Antes do código, entendo o chamado, o requisito e o impacto. Bug ou melhoria, começo pela causa raiz." },
@@ -57,7 +58,7 @@ export default function Home() {
           <a href="#experiencia">Experiência</a>
           <a href="#contato">Contato</a>
         </nav>
-        <a className="nav-cta" href={LI} target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <a className="nav-cta" href={CV} download>Currículo ↓</a>
       </header>
 
       <main id="top">
@@ -72,7 +73,8 @@ export default function Home() {
             </p>
             <p className="mono techline">Node.js · TypeScript · NestJS · Python · Java · SQL · Linux · AWS</p>
             <div className="cta">
-              <a className="btn primary" href="#projetos">Ver projetos</a>
+              <a className="btn primary" href={CV} download>Baixar currículo ↓</a>
+              <a className="btn ghost" href="#projetos">Ver projetos</a>
               <a className="btn ghost" href={LI} target="_blank" rel="noreferrer">LinkedIn</a>
               <a className="btn ghost" href={GH} target="_blank" rel="noreferrer">GitHub</a>
               <a className="btn ghost" href="#contato">Vamos conversar</a>
@@ -217,10 +219,13 @@ Aberto a oportunidades_`}</pre>
           </div>
           <div className="cv-box">
             <div>
-              <h3>Prefere ver o perfil completo?</h3>
-              <p>Experiências, certificados e recomendações no LinkedIn.</p>
+              <h3>Prefere ler o currículo completo?</h3>
+              <p>PDF atualizado, 2 páginas.</p>
             </div>
-            <a className="btn primary" href={LI} target="_blank" rel="noreferrer">Abrir LinkedIn ↗</a>
+            <div className="cta" style={{ marginTop: 0 }}>
+              <a className="btn ghost" href={LI} target="_blank" rel="noreferrer">LinkedIn ↗</a>
+              <a className="btn primary" href={CV} download>Baixar currículo ↓</a>
+            </div>
           </div>
         </section>
       </main>

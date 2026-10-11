@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const description =
+  "Desenvolvedor Back-End: APIs REST, automação de processos e dados com Node.js, TypeScript, NestJS, Python, Java e SQL.";
+
 export const metadata: Metadata = {
-  title: "Bruno Luiz — Desenvolvedor de Software",
-  description:
-    "Portfólio de Bruno Luiz: aplicações mobile, desktop e web em Java, C#, Python e TypeScript.",
+  metadataBase: new URL("https://bruno-luiz-portfolio.vercel.app"),
+  title: "Bruno Luiz — Desenvolvedor Back-End",
+  description,
+  openGraph: {
+    title: "Bruno Luiz — Desenvolvedor Back-End",
+    description,
+    url: "https://bruno-luiz-portfolio.vercel.app",
+    siteName: "Portfólio Bruno Luiz",
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image", title: "Bruno Luiz — Desenvolvedor Back-End", description },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
