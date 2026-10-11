@@ -7,7 +7,7 @@ const GH = "https://github.com/Bruno-Luiz-CNR";
 const LI = "https://www.linkedin.com/in/brunoluizft/";
 const IG = "https://www.instagram.com/brunolu1z/";
 const MAIL = "bluizft@gmail.com";
-const CV = "/curriculo-bruno-luiz.pdf";
+const CV = "projects/curriculo-bruno-luiz.pdf";
 
 const steps = [
   { t: "Entender o problema", d: "Antes do código, entendo o chamado, o requisito e o impacto. Bug ou melhoria, começo pela causa raiz." },
