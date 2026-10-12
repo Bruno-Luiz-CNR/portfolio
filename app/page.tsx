@@ -5,7 +5,6 @@ import { education, experiences } from "./projects";
 
 const GH = "https://github.com/Bruno-Luiz-CNR";
 const LI = "https://www.linkedin.com/in/brunoluizft/";
-const IG = "https://www.instagram.com/brunolu1z/";
 const MAIL = "bluizft@gmail.com";
 const CV = "/Bruno_Luiz_Curriculo.pdf";
 
@@ -29,7 +28,6 @@ const contacts = [
   { k: "E-mail", v: MAIL, href: `mailto:${MAIL}`, icon: "✉" },
   { k: "LinkedIn", v: "/in/brunoluizft", href: LI, icon: "in" },
   { k: "GitHub", v: "Bruno-Luiz-CNR", href: GH, icon: "</>" },
-  { k: "Instagram", v: "@brunolu1z", href: IG, icon: "◎" },
 ];
 
 function SectionHead({ n, kicker, title, text }: { n: string; kicker: string; title: string; text?: string }) {
