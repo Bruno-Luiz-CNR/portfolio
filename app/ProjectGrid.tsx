@@ -89,7 +89,7 @@ export default function ProjectGrid() {
                 <h4>Resultados</h4>
                 <ul className="hl">{open.results.map((h) => <li key={h}>{h}</li>)}</ul>
               </div>
-              <a className="btn primary" href={open.repo} target="_blank" rel="noreferrer">Ver código no GitHub →</a>
+              {open.repo && <a className="btn primary" href={open.repo} target="_blank" rel="noreferrer">Ver código no GitHub →</a>}
             </div>
           </div>
         </div>

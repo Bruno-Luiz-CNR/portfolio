@@ -9,7 +9,7 @@ export interface Project {
   solution: string;
   results: string[];
   image?: string;
-  repo: string;
+  repo?: string;
   stack: string[];
   category: Category;
   featured?: boolean;
@@ -158,6 +158,34 @@ export const projects: Project[] = [
     repo: `${GH}/site-racas-de-gatos`,
     stack: ["HTML", "CSS"],
     category: "Web",
+  },
+  {
+    slug: "lw-portal",
+    title: "Portal Soluções Técnicas",
+    role: "Web · Back-end · LW Tecnologia",
+    tagline: "Portal interno que reúne ferramentas de apoio à operação",
+    problem:
+      "Ferramentas de consulta, extração e automação ficavam espalhadas, dificultando o acesso da equipe técnica e a padronização dos processos.",
+    solution:
+      "Portal web que centraliza as ferramentas do time (consulta de veículos e multas, extração de imagens via API, mineração de dados, queries e documentos) em uma única interface, com busca, menu por categorias e indicadores de uso.",
+    results: ["Acesso único às ferramentas da equipe", "Automação de tarefas manuais de consulta e extração", "Padronização de consultas e documentação"],
+    image: "/projects/lw-portal.webp",
+    stack: ["Node.js", "TypeScript", "MySQL", "Python", "Java"],
+    category: "Web",
+  },
+  {
+    slug: "calculadora",
+    title: "Calculadora Flutter",
+    role: "Mobile · Flutter",
+    tagline: "Calculadora com visual neon e sombras suaves",
+    problem: "Praticar Flutter e construir uma interface moderna e responsiva além do layout padrão.",
+    solution:
+      "App de calculadora em Flutter e Dart com display em neon, gradientes, botões com sombras e layout adaptável a diferentes tamanhos de tela.",
+    results: ["Interface responsiva", "Visual personalizado com tema próprio", "Código 100% Flutter"],
+    image: "/projects/calculadora.webp",
+    repo: `${GH}/flutter-calculadora`,
+    stack: ["Flutter", "Dart", "Material 3"],
+    category: "Mobile",
   },
 ];
 
