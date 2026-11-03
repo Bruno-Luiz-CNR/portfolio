@@ -1,6 +1,10 @@
 import Starfield from "./Starfield";
 import ProjectGrid from "./ProjectGrid";
 import Reveal from "./Reveal";
+import Effects from "./Effects";
+import Rotator from "./Rotator";
+import Painter from "./Painter";
+import CommandPalette from "./CommandPalette";
 import { education, experiences } from "./projects";
 
 const GH = "https://github.com/Bruno-Luiz-CNR";
@@ -30,6 +34,11 @@ const contacts = [
   { k: "GitHub", v: "Bruno-Luiz-CNR", href: GH, icon: "</>" },
 ];
 
+const marquee = [
+  "Node.js", "TypeScript", "NestJS", "Python", "Django", "Java", "MySQL", "SQL Server", "Oracle", "IBM DB2",
+  "Linux", "AWS", "Git", "Selenium", "Pandas", "Swagger",
+];
+
 function SectionHead({ n, kicker, title, text }: { n: string; kicker: string; title: string; text?: string }) {
   return (
     <div className="section-head">
@@ -45,6 +54,12 @@ export default function Home() {
     <>
       <Starfield />
       <Reveal />
+      <Effects />
+      <CommandPalette links={{ gh: GH, li: LI, mail: MAIL, cv: CV }} />
+      <div id="progress" className="progress" aria-hidden />
+      <div className="aurora" aria-hidden />
+      <div className="grain" aria-hidden />
+      <div id="cursor-glow" className="cursor-glow" aria-hidden />
       <div className="grid-floor" aria-hidden />
       <header className="nav">
         <a href="#top" className="logo">BL<span>_</span></a>
@@ -56,20 +71,40 @@ export default function Home() {
           <a href="#experiencia">Experiência</a>
           <a href="#contato">Contato</a>
         </nav>
-        <a className="nav-cta" href={CV} download>Currículo ↓</a>
+        <div className="nav-right">
+          <button type="button" className="kbd-btn mono" data-open-palette aria-label="Abrir paleta de comandos">
+            <span>buscar</span><kbd data-kbd>Ctrl K</kbd>
+          </button>
+          <a className="nav-cta" href={CV} download>Currículo ↓</a>
+        </div>
       </header>
 
       <main id="top">
         <section className="hero">
+          <Painter src="/bruno-cutout.webp">
+            <div className="api mono" aria-hidden>
+              <div className="api-bar"><b>GET</b> /api/bruno <span className="ok">200 OK</span></div>
+              <pre>{`{
+  `}<i className="j-k">&quot;nome&quot;</i>{`: `}<i className="j-s">&quot;Bruno Luiz&quot;</i>{`,
+  `}<i className="j-k">&quot;cargo&quot;</i>{`: `}<i className="j-s">&quot;Back-End Dev&quot;</i>{`,
+  `}<i className="j-k">&quot;procurando_oportunidade&quot;</i>{`: `}<i className="j-b">true</i>{`
+}`}</pre>
+            </div>
+          </Painter>
+
           <div className="hero-text">
-            <p className="kicker">BACK-END · DADOS · AUTOMAÇÃO</p>
+            <p className="kicker">OLÁ, EU SOU</p>
             <h1 className="glitch" data-text="Bruno Luiz">Bruno Luiz</h1>
-            <h2>Desenvolvedor <span className="grad">Back-End</span></h2>
+            <h2>Desenvolvedor <Rotator /></h2>
             <p className="lead">
-              Do chamado ao deploy: construo e sustento APIs, automações e consultas SQL que
-              mantêm sistemas críticos de pé — hoje, numa plataforma usada por DETRAN, PRF e DNIT.
+              Analista de Soluções Técnicas na <b>LW Tecnologia</b>. Do chamado ao deploy, construo e
+              sustento sistemas críticos de pé — hoje, numa plataforma usada por DETRAN, PRF e DNIT.
             </p>
-            <p className="mono techline">Node.js · TypeScript · NestJS · Python · Java · SQL · Linux · AWS</p>
+            <ul className="does">
+              <li><span className="ico">{"{ }"}</span><div><b>APIs & integrações</b><small>Node.js, TypeScript, NestJS, Python e Java</small></div></li>
+              <li><span className="ico">⚙</span><div><b>Automação</b><small>Scripts que eliminam trabalho manual</small></div></li>
+              <li><span className="ico">▤</span><div><b>Dados & SQL</b><small>Consultas otimizadas em MySQL, Oracle e DB2</small></div></li>
+            </ul>
             <div className="cta">
               <a className="btn primary" href={CV} download>Baixar currículo ↓</a>
               <a className="btn ghost" href="#projetos">Ver projetos</a>
@@ -77,21 +112,20 @@ export default function Home() {
               <a className="btn ghost" href={GH} target="_blank" rel="noreferrer">GitHub</a>
               <a className="btn ghost" href="#contato">Vamos conversar</a>
             </div>
-            <p className="loc mono">⌖ Colombo — PR, Brasil · presencial / híbrido</p>
+            <p className="loc mono"><span className="status mono"><span className="dot" /> aberto a oportunidades</span> &nbsp;⌖ Colombo — PR · presencial / híbrido</p>
           </div>
-
-          <aside className="profile">
-            <div className="avatar-ring"><img src={`${GH}.png?size=320`} alt="Foto de Bruno Luiz" /></div>
-            <h3>Bruno Luiz</h3>
-            <p>Analista de Soluções Técnicas<br />Desenvolvimento Back-End</p>
-            <span className="status mono"><span className="dot" /> aberto a oportunidades</span>
-          </aside>
         </section>
 
+        <div className="marquee" aria-hidden>
+          <div className="marquee-track">
+            {[...marquee, ...marquee].map((m, i) => <span key={i}>{m}</span>)}
+          </div>
+        </div>
+
         <div className="stats reveal">
-          <div><b>3+ anos</b><span>desenvolvendo sistemas, APIs e automações</span></div>
-          <div><b>23+ fontes</b><span>governamentais mineradas na plataforma em que atuo</span></div>
-          <div><b>30+ repos</b><span>projetos públicos no GitHub</span></div>
+          <div><b><span data-count="3">3</span>+ anos</b><span>desenvolvendo sistemas, APIs e automações</span></div>
+          <div><b><span data-count="23">23</span>+ fontes</b><span>governamentais mineradas na plataforma em que atuo</span></div>
+          <div><b><span data-count="30">30</span>+ repos</b><span>projetos públicos no GitHub</span></div>
         </div>
 
         <section id="sobre" className="section about reveal">

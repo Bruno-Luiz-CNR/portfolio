@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./tech.css";
+import "./easel.css";
+import "./projects.css";
 
 const description =
   "Desenvolvedor Back-End: APIs REST, automação de processos e dados com Node.js, TypeScript, NestJS, Python, Java e SQL.";

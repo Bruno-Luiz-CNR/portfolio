@@ -1,0 +1,52 @@
+/* ===== abertura: o pintor ===== */
+.hero { grid-template-columns: minmax(300px, 440px) 1fr; gap: 64px; }
+.hero .glitch { font-size: clamp(42px, 6.4vw, 84px); }
+
+.easel { position: relative; transition: transform .25s ease-out; will-change: transform; }
+.canvas-frame { position: relative; aspect-ratio: 1; cursor: pointer; outline: none; border-radius: 22px;
+  background:
+    radial-gradient(60% 55% at 50% 38%, rgba(168, 85, 247, .22), transparent 70%),
+    radial-gradient(rgba(0, 229, 255, .22) 1px, transparent 1.4px) 0 0 / 22px 22px;
+  border: 1px dashed rgba(0, 229, 255, .3); }
+.canvas-frame:focus-visible { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(0, 229, 255, .25); }
+.canvas-frame .paint { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+  -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 99%); mask-image: linear-gradient(to bottom, #000 80%, transparent 99%);
+  filter: drop-shadow(0 0 26px rgba(0, 229, 255, .22)); }
+.corner { position: absolute; width: 18px; height: 18px; border: 2px solid var(--cyan); opacity: .8; filter: drop-shadow(0 0 6px var(--cyan)); }
+.corner.tl { top: -2px; left: -2px; border-right: 0; border-bottom: 0; border-top-left-radius: 8px; }
+.corner.tr { top: -2px; right: -2px; border-left: 0; border-bottom: 0; border-top-right-radius: 8px; }
+.corner.bl { bottom: -2px; left: -2px; border-right: 0; border-top: 0; border-bottom-left-radius: 8px; }
+.corner.br { bottom: -2px; right: -2px; border-left: 0; border-top: 0; border-bottom-right-radius: 8px; }
+
+/* a mão do pintor */
+.hand { position: absolute; left: -8px; top: -292px; width: 300px; height: 300px; z-index: 4; pointer-events: none;
+  transform-origin: 8px 292px; --tip: #00e5ff; --hs: 1; transition: opacity .4s;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, .45)); }
+.hand svg { transform: scale(var(--hs)); transform-origin: 8px 292px; overflow: visible; }
+.easel.paint .hand { --tip: #ff2bd6; }
+.easel.done .hand { opacity: 0; }
+
+.paint-status { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 12px; color: var(--muted); }
+.paint-status b { color: var(--cyan); font-weight: 500; min-width: 3.4ch; }
+.paint-status .bar { flex: 1; height: 3px; border-radius: 3px; background: rgba(255, 255, 255, .08); overflow: hidden; }
+.paint-status .bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink)); box-shadow: 0 0 8px var(--cyan); }
+.easel.done .paint-status { color: #8dffc0; }
+
+/* painel de API aparece quando a pintura termina */
+.easel .api { margin-top: 16px;
+  opacity: 0; transform: translateY(14px); transition: opacity .6s .2s, transform .6s .2s; }
+.easel.done .api { opacity: 1; transform: none; }
+
+/* resumo */
+.does { list-style: none; display: grid; gap: 10px; margin-top: 22px; max-width: 560px; }
+.does li { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--line); background: var(--panel); backdrop-filter: blur(10px); transition: border-color .25s, transform .25s; }
+.does li:hover { border-color: var(--cyan); transform: translateX(4px); }
+.does b { display: block; font-size: 15px; }
+.does small { color: var(--muted); font-size: 13px; }
+.hero .loc { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.lead b { color: var(--cyan); font-weight: 600; }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 36px; padding-top: 100px; }
+  .easel { max-width: 400px; width: 100%; margin: 0 auto; }
+}

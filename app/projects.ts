@@ -187,6 +187,26 @@ export const projects: Project[] = [
     stack: ["Flutter", "Dart", "Material 3"],
     category: "Mobile",
   },
+  {
+    slug: "team-call-room",
+    title: "Team Call Room",
+    role: "Web · Tempo real · WebRTC",
+    tagline: "Escritório virtual com chamadas por proximidade e sala de sinuca",
+    problem:
+      "Times remotos e híbridos perdem a conversa espontânea do escritório, e ferramentas de reunião tradicionais exigem agendar e entrar em links.",
+    solution:
+      "Mapa do escritório (2D, 3D e realista) em que cada pessoa é um boneco: ao chegar perto de alguém, a conversa por áudio, câmera e tela começa; salas de reunião reúnem todos na mesma chamada. Inclui sinuca multiplayer com física no servidor, fila e placar, e reserva de mesa no escritório físico.",
+    results: [
+      "Áudio, vídeo e compartilhamento de tela direto entre navegadores (WebRTC), com reconexão automática em VPN",
+      "Sinuca 1×1 e 2×2 com fila, rodízio e ranking das duplas",
+      "Sem dependências npm, com deploy em Docker + Caddy (HTTPS automático) e app desktop em Electron",
+    ],
+    image: "/projects/team-call-room.webp",
+    repo: `${GH}/TEAM-CALL-ROOM`,
+    stack: ["Node.js", "JavaScript", "WebRTC", "Docker", "Electron"],
+    category: "Web",
+    featured: true,
+  },
 ];
 
 export const categories: ("Todos" | Category)[] = ["Todos", "Back-end", "Mobile", "Desktop", "Web", "Dados"];
